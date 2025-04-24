@@ -175,7 +175,7 @@ def main():
     df_d9 = pd.read_csv(f"{local_path}/03-01-2018.csv", low_memory=False)
     df_d10 = pd.read_csv(f"{local_path}/03-02-2018.csv", low_memory=False)
 
-    print("CSV read END")
+    print("\n\n CSV read END \n\n ")
 
     df_d1 = fix_data_type(df_d1)
     df_d2 = fix_data_type(df_d2)
@@ -188,7 +188,7 @@ def main():
     df_d9 = fix_data_type(df_d9)
     df_d10 = fix_data_type(df_d10)
 
-    print("Data Type Fix END")
+    print("\n\n Data Type Fix END \n\n ")
 
     df_d1 = drop_infinate_null(df_d1)
     df_d2 = drop_infinate_null(df_d2)
@@ -201,7 +201,7 @@ def main():
     df_d9 = drop_infinate_null(df_d9)
     df_d10 = drop_infinate_null(df_d10)
 
-    print("Infinity Drop END")
+    print("\n\n Infinity Drop END \n\n ")
 
     df_d1, _ = reduce_mem_usage(df_d1)
     df_d2, _ = reduce_mem_usage(df_d2)
@@ -214,18 +214,18 @@ def main():
     df_d9, _ = reduce_mem_usage(df_d9)
     df_d10, _ = reduce_mem_usage(df_d10)
 
-    print("Data Type Optimization END")
+    print("\n\n Data Type Optimization END \n\n ")
 
     df_d4.drop(columns=['Flow ID', 'Src IP', 'Src Port', 'Dst IP'], axis=1,inplace=True)
 
     df_all = pd.concat([df_d1, df_d2, df_d3, df_d4, df_d5, df_d6, df_d7, df_d8, df_d9, df_d10], axis=0)
     df_all.reset_index(drop=True, inplace=True)
 
-    print("Drop and Concatenation END")
+    print("\n\n Drop and Concatenation END \n\n ")
 
-    df_all.to_csv('reduced_combined_data.csv', index = False)
+    df_all.to_csv('data/reduced_combined_data.csv', index = False)
 
-    print("csv save END")
+    print("\n\n csv save END \n\n ")
 
     # Optionally clean up memory
     del df_d1, df_d2, df_d3, df_d4, df_d5, df_d6, df_d7, df_d8, df_d9, df_d10
