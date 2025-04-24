@@ -224,6 +224,7 @@ def main():
     print("\n\n Drop and Concatenation END \n\n ")
 
     df_all.to_csv('data/reduced_combined_data.csv', index = False)
+    df_all.to_parquet('data/reduced_combined_data.parquet', index = False)
 
     print("\n\n csv save END \n\n ")
 
